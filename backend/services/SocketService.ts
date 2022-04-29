@@ -83,6 +83,7 @@ export default class SocketService
                 {
                     case MessageType.joinChat:
                         this.joinChat(ws, message.body);
+                        break;
                     case MessageType.sendChat:
                         this.chat(message.body, ws);
                         break;
@@ -167,6 +168,7 @@ export default class SocketService
 
     private chat(_messageBody: MessageBody, ws: extendedWS)
     {
+        console.log('Sending message to all clients: ', _messageBody.message);
         // this.addConnection(_message.sender, ws);
         this.wss.clients.forEach((client: any) =>
         {
