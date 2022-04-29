@@ -73,7 +73,7 @@ It has Jenkins support, If you have a Jenkins server you can use the Jenkins git
 
 ## Current progress
 
-- [ ] Write a socket class for the server 
+- [x] Write a socket class for the server 
 - [ ] Write a socketchat component for react frontend
 - [ ] Wire up server class to mongodb 
 - [ ] Add correct nginx configuration

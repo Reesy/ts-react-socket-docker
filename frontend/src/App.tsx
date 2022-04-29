@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/App.css';
-import UserComponent from './components/UserComponent';
+// import UserComponent from './components/UserComponent';
+import ChatComponent from './components/ChatComponent';
 
 interface AppProps 
 {
@@ -21,7 +22,7 @@ export default class App extends React.Component<AppProps, AppState>
       <div className="App">
         <header>
         </header>
-        <UserComponent />
+        <ChatComponent />
       </div>
     );
   }
