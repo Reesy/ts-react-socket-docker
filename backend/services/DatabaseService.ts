@@ -1,5 +1,5 @@
 import { MongoClientOptions, MongoClient, Collection, Db } from 'mongodb';
-import { config } from './config';
+import { config } from '../config';
 
 class DatabaseComponent 
 {
