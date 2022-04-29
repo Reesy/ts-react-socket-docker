@@ -1,0 +1,38 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+#Notes
+# ports format: left side is the port exposed on the host, right side is internal to the container
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $MONGO_ROOT_USER
+      MONGO_INITDB_ROOT_PASSWORD: $MONGO_ROOT_PASSWORD
+    ports: 
+      - $MONGO_PORT:27017   
+  backend:
+    depends_on:
+      - mongo
+    image: ts-express-tdd-docker-backend:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      MONGO_ROOT_USER: $MONGO_ROOT_USER
+      MONGO_ROOT_PASSWORD: $MONGO_ROOT_PASSWORD
+      MONGO_PORT: $MONGO_PORT
+      MONGO_HOST: mongo
+    ports:
+      - $BACKEND_PORT:8000
+  frontend:
+    depends_on:
+      - backend
+    image: ts-express-tdd-docker-frontend:latest
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - $FRONTEND_PORT:3000
