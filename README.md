@@ -46,58 +46,6 @@ Test:
 
 Any tests added to the test folder will automatically be tested. 
 
-## REST API
-
-### POST ```/api/v1/user```
-
-Example request:
-```
-POST /api/v1/user HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Content-Length: xy
-
-{
-    "name": "John Doe",
-    "email": "JohnDoe@emailProvider.com"
-}
-```
-Example response:
-```
-HTTP/1.1 200 OK
-Server: My RESTful API
-Content-Type: application/json; charset=utf-8
-Content-Length: xy
-
-"Added user John Doe to the database" 
-
-```
-
-### GET ```/api/v1/users```
-
-Example request:
-```
-GET /api/v1/users HTTP/1.1
-```
-
-Example response:
-```
-HTTP/1.1 200 OK
-Server: My RESTful API
-Content-Type: application/json; charset=utf-8
-Content-Length: xy
-
-[
-  {
-    "name": "John Doe",
-    "email": "JohnDoe@emailProvider.com"
-  },
-  {
-    "name": "Tim Smith",
-    "email": "TimSmith@OtherEmailProvider.jp"
-]
-```
-
 ## Installing and running the React frontend.
 
 ### `npm start`
@@ -130,4 +78,3 @@ It has Jenkins support, If you have a Jenkins server you can use the Jenkins git
 - [ ] Wire up server class to mongodb 
 - [ ] Add correct nginx configuration
 - [ ] Add correct docker configuration for instantaneous deployements
-- [ ] 
