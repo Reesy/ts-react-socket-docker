@@ -1,8 +1,9 @@
 # ts-express-tdd-docker-nginx
 
-This is a small project to test nginx, I want to use docker-compose to host a single-page app with a back-end and database (in this case mongoDB).
+This project consists of a small chat app built in react which communicates via socket to a NodeJS backend which then gets rebroadcasted to all connected clients. 
 
-It has a mongo database that stores a user name and an associated email address, there is an insertion and deletion REST API, as well as a GET request for all the users.
+
+It has a mongo database that stores chat logs and timestamps. 
 
 
 ## Using nginx
@@ -124,24 +125,9 @@ It has Jenkins support, If you have a Jenkins server you can use the Jenkins git
 
 ## Current progress
 
-- [ ] Updated frontend to call the api.
-  - [x] Add a form to add user.
-  - [x] Add a component to display the current users
-  - [ ] Add a UI widget to delete a user.
-  - [ ] Handle error responses correctly in Users component.
-  - [x] Update the backend api paths with a configurable host via env variables.
-- [x] Add a nginx.conf file
-  - [ ] Add certificate, using certbot.
-  - [ ] Add a readme on using certbot and adding cert volumes through docker. 
-- [ ] Make nginx optional for deployments with nginx installed directly on the metal. 
-- [ ] Update CORS to be less permissable, i.e add a prod mode. 
-- [x] Dockerise frontend
-  - [ ] Narrow down files that should be in the docker image.
-- [x] Dockerise backend
-  - [ ] Narrow down files that should be in the docker image.
-- [x] Add docker-compose.yml
-- [x] Jenkins build jobs
-  - [ ] Add a jenkins job to build and test the backend
-  - [ ] Add a Jenkins job to build the test frontend.
-- [ ] Better capture API errors and render a dummy template
-- [ ] write a readme on how to deploy with nginx on the machine rather that docker.
+- [ ] Write a socket class for the server 
+- [ ] Write a socketchat component for react frontend
+- [ ] Wire up server class to mongodb 
+- [ ] Add correct nginx configuration
+- [ ] Add correct docker configuration for instantaneous deployements
+- [ ] 
