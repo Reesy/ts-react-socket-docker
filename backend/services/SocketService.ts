@@ -25,6 +25,7 @@ enum MessageType
     PING = "ping",
     sendChat = "sendChat",
     joinChat = "joinChat",
+    chatUpdate = "chatUpdate"
 }
 
 interface clientMessage
@@ -32,6 +33,7 @@ interface clientMessage
     type: MessageType;
     body: MessageBody;
 }
+
 
 export default class SocketService 
 {
@@ -103,7 +105,7 @@ export default class SocketService
 
         });
     };
-
+  
     private joinChat(ws: extendedWS, body: MessageBody)
     {
         let connection: Chatter = {
@@ -111,6 +113,7 @@ export default class SocketService
         };
 
         this.chatters.set(ws.connectionID, connection);
+        this.sentUpdatedMemberList(ws);
         return;
     };
 
@@ -182,4 +185,26 @@ export default class SocketService
             };
         });
     };
+
+    private sentUpdatedMemberList(ws: extendedWS)
+    {
+        let memberList: Chatter[] = [];
+        this.chatters.forEach((chatter: Chatter) =>
+        {
+            memberList.push(chatter);
+        });
+
+        let memberListMessage: any = 
+        {
+            type: MessageType.chatUpdate,
+            body: {
+                memberList: memberList,
+            }
+        };
+        this.wss.clients.forEach((client: any) =>
+        {
+          client.send(JSON.stringify(memberListMessage));
+        });
+    };
+
 };
