@@ -1,0 +1,51 @@
+
+.chatcomponent {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* I chose 12 as it is easily divisible*/
+    gap: 5px;
+    border: 1px solid red;
+
+}
+
+.chatcomponent__header {
+    grid-column: 1 /  13;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    border: 1px solid red;
+}
+
+.chat {
+    grid-column: 10 / 13;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* I chose 12 as it is easily divisible*/
+    background-color: #f5f5f5;
+    border: 1px solid red;
+}
+
+.chat__header {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    border: 1px solid red;
+}
+
+.chat__element {
+    grid-column: 2;
+    grid-auto-rows: max-content;
+    border: 1px solid red;
+}
+
+
+.messages {
+    grid-column: 1 / 10;
+    grid-row: 2;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    border: 1px solid red;
+}
+

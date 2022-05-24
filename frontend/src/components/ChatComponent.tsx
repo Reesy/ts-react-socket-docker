@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { SocketAPI } from '../apis/SocketAPI';
-
+import "../styles/ChatComponent.css"
 interface ChatComponentProps
 {
 
@@ -85,26 +85,21 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
         // };
      
         return (
-            <div>
-                <h1>Chat</h1>
-                <div>
-                    <h2>Chatters</h2>   
-                    <ul>
-                        {this.state.Chatters.map((chatter, index) => 
-                            <li>
-                                {chatter.name}
-                            </li>
-                        )}
-                        
-                    </ul>
+            <div className="chatcomponent">
+                {/* <h1 className="chatcomponent__header" >Chat</h1> */}
+                <div className="chat">
+                    <h2 className="chat__header">Chatters</h2>   
+                    {this.state.Chatters.map((chatter, index) => 
+                        <p className="chat__element">
+                            {chatter.name}
+                        </p>
+                    )}
                 </div>
-                <div>
-                    <h2>Messages</h2>
-                    <ul>
+                <div className="messages">
+                    <h2 className="messages_header">Messages</h2>
                         {this.state.Messages.map((message, index) =>
-                            <li key={index}>{message}</li>
+                            <p className="messages__element" key={index}>{message}</p>
                         )}
-                    </ul>
                     {nameInput}
                 </div>
             </div>
