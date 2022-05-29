@@ -88,7 +88,7 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
             <div className="chatcomponent">
                 {/* <h1 className="chatcomponent__header" >Chat</h1> */}
                 <div className="chat">
-                    <h2 className="chat__header">Chatters</h2>   
+                    <h2 className="chat__header">Online:</h2>   
                     {this.state.Chatters.map((chatter, index) => 
                         <p className="chat__element">
                             {chatter.name}

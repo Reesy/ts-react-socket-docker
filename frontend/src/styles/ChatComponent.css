@@ -21,7 +21,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* I chose 12 as it is easily divisible*/
     background-color: #f5f5f5;
-    border: 1px solid red;
+    border: 1px solid rgb(43, 0, 255);
 }
 
 .chat__header {
@@ -30,13 +30,13 @@
     background-color: #f5f5f5;
     border-bottom: 1px solid #ccc;
     text-align: center;
-    border: 1px solid red;
+    border: 1px solid rgb(13, 0, 255);
 }
 
 .chat__element {
     grid-column: 2;
     grid-auto-rows: max-content;
-    border: 1px solid red;
+    border: 1px solid rgb(0, 13, 255);
 }
 
 
