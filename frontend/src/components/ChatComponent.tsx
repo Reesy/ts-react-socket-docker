@@ -60,7 +60,7 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
         if (this.state.Name === "")
         {
             nameInput = 
-            <div>
+            <div className="messages__input">
                 <input type="text" placeholder="Enter name" id="name-input" />
                 <button onClick={this.handleJoinClick}> Join chat </button>
             </div>
@@ -68,22 +68,12 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
         else
         {
             nameInput =
-            <div>
+            <div className="messages__input">
                 <p>{this.state.Name} : </p><input type="text" placeholder="Enter message" id="message-input" />
                 <button onClick={this.handleSendClick}> Send message</button>
             </div>
         }
 
-        // let chattersList;
-
-        // if (this.state.Chatters.length > 0)
-        // {
-        //     for (let i = 0; i < this.state.Chatters.length; i++)
-        //     {
-        //         // chattersList += <li> chatter <li/>
-        //     };
-        // };
-     
         return (
             <div className="chatcomponent">
                 {/* <h1 className="chatcomponent__header" >Chat</h1> */}
@@ -96,12 +86,15 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
                     )}
                 </div>
                 <div className="messages">
-                    <h2 className="messages_header">Messages</h2>
-                        {this.state.Messages.map((message, index) =>
-                            <p className="messages__element" key={index}>{message}</p>
-                        )}
+                    <h3 className="messages__header">Messages</h3>
+                        <div className="messages__container">
+                            {this.state.Messages.map((message, index) =>
+                                <p className="messages__element" key={index}>{message}</p>
+                            )}
+                        </div>
                     {nameInput}
                 </div>
+                
             </div>
         );
     };
@@ -194,6 +187,13 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
         this.setState({
             Messages: currentMessages
         });
+
+        //scroll to bottom
+        let messagesContainer = document.getElementsByClassName("messages__container")[0];
+        if (typeof(messagesContainer) !== 'undefined' && messagesContainer !== null)
+        {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
     };
 
 };

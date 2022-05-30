@@ -4,6 +4,7 @@
     grid-template-columns: repeat(12, 1fr); /* I chose 12 as it is easily divisible*/
     gap: 5px;
     border: 1px solid red;
+    max-height: 400px;
 
 }
 
@@ -14,19 +15,43 @@
     text-align: center;
     border: 1px solid red;
 }
+.messages {
+    display: grid;
+    grid-column: 1 / 10;
+    grid-row: 2;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    border: 1px solid red;
+    max-height: 600px;
+}
+
+.messages__container {
+    
+    max-height: 400px;
+    overflow: auto;
+    scroll-snap-align: start;
+    border: 10px solid rgb(255, 213, 0);
+}
+.messages__element {
+    
+    border: 1px solid blue;
+}
+.messages__input {
+    border: 1px solid green;
+    grid-row: auto;
+}
 
 .chat {
     grid-column: 10 / 13;
     grid-row: 2;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* I chose 12 as it is easily divisible*/
+    /* display: grid; */
+    /* grid-template-columns: repeat(3, 1fr); */
     background-color: #f5f5f5;
     border: 1px solid rgb(43, 0, 255);
 }
 
 .chat__header {
-    grid-column: 2;
-    grid-row: 1;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ccc;
     text-align: center;
@@ -34,18 +59,7 @@
 }
 
 .chat__element {
-    grid-column: 2;
-    grid-auto-rows: max-content;
     border: 1px solid rgb(0, 13, 255);
 }
 
-
-.messages {
-    grid-column: 1 / 10;
-    grid-row: 2;
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
-    border: 1px solid red;
-}
 
