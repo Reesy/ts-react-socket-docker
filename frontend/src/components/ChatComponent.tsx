@@ -56,21 +56,31 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
     render(): React.ReactNode
     {
         let nameInput;
-
+        let messagesHeader;
         if (this.state.Name === "")
         {
             nameInput = 
-            <div className="messages__input">
-                <input type="text" placeholder="Enter name" id="name-input" />
-                <button onClick={this.handleJoinClick}> Join chat </button>
+            <div className="input">
+                <input type="text" placeholder="Enter name" id="name-input" className="input__box" />
+                <button onClick={this.handleJoinClick} className="input__button"> Join chat </button>
+            </div>
+
+            messagesHeader =
+            <div>
+              <h3 className="messages__header">Messages</h3> 
             </div>
         }
         else
         {
             nameInput =
-            <div className="messages__input">
-                <p>{this.state.Name} : </p><input type="text" placeholder="Enter message" id="message-input" />
-                <button onClick={this.handleSendClick}> Send message</button>
+            <div className="input">
+                <input type="text" placeholder="Enter message" id="message-input" className="input__box" />
+                <button onClick={this.handleSendClick} className="input__button"> Send message</button>
+            </div>
+
+            messagesHeader =
+            <div>
+                <h3 className="messages__header">Messages</h3> <p className="input__name">Messaging as: {this.state.Name} </p>
             </div>
         }
 
@@ -86,7 +96,7 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
                     )}
                 </div>
                 <div className="messages">
-                    <h3 className="messages__header">Messages</h3>
+                    {messagesHeader}
                         <div className="messages__container">
                             {this.state.Messages.map((message, index) =>
                                 <p className="messages__element" key={index}>{message}</p>
@@ -109,6 +119,7 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
                 Name: inputElement.value
             });
             this.JoinChat(inputElement.value);
+            inputElement.value = "";
         };
         
     };
@@ -131,6 +142,7 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
 
             this.SocketAPI.send(JSON.stringify(message));
             this.handleChatEntry(message.body);
+            inputElement.value = "";
             return;
         };
 
