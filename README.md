@@ -6,7 +6,7 @@ This project consists of a small chat app built in react which communicates via 
 
 Building and running ```docker-compose up``` navigating to http://localhost will give this screen: 
 
-<img src="chat-example.PNG" style="width: 800px" />
+<img src="chat-example.png" style="width: 800px" />
 
 It has a mongo database that stores chat logs and timestamps. 
 
