@@ -26,24 +26,20 @@ export class SocketAPI
     };
 
     //I want to check if a connection is established, once connected I want the promise to resolve. 
-    private waitForOpen(): Promise<void>
+    private async waitForOpen(): Promise<void>
     {
-        return new Promise<void>((resolve, reject) =>
+        if (this.websocket.readyState === WebSocket.OPEN)
         {
-            if (this.websocket.readyState === WebSocket.OPEN)
+            return;
+        }
+        else
+        {
+            this.websocket.onopen = () =>
             {
-                resolve();
-            }
-            else
-            {
-                this.websocket.onopen = () =>
-                {
-                    console.log("Socket connection established");
-                    resolve();
-                };
-            }
-        });
-
+                console.log("Socket connection established");
+                return;
+            };
+        }
     };
 
 

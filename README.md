@@ -1,7 +1,12 @@
-# ts-express-tdd-docker-nginx
+# ts-react-socket-docker-chat
 
 This project consists of a small chat app built in react which communicates via socket to a NodeJS backend which then gets rebroadcasted to all connected clients. 
 
+## UI
+
+Building and running ```docker-compose up``` navigating to http://localhost will give this screen: 
+
+<img src="chat-example.PNG" style="width: 800px" />
 
 It has a mongo database that stores chat logs and timestamps. 
 
@@ -18,11 +23,6 @@ _we don't remap mongo in the nginx conf, we only want the api server to have acc
 
 <br/>
 
-## UI
-
-Building and running ```docker-compose up``` navigating to http://localhost will give this screen: 
-
-<img src="app.PNG" style="width: 600px" />
 
 ## Installing and running the Node backend.
 
