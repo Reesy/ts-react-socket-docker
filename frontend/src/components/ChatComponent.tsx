@@ -35,6 +35,13 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
     {
         console.log(error);
     }
+
+    componentDidMount()
+    {
+        this.SocketAPI.init();
+        this.SocketAPI.addListener(this.ChatSocketHandler);
+    };
+
     constructor(props: ChatComponentProps)
     {
         super(props);
@@ -49,7 +56,7 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
         };
 
         this.SocketAPI = new SocketAPI();
-        this.SocketAPI.addListener(this.ChatSocketHandler);
+        // this.SocketAPI.addListener(this.ChatSocketHandler);
         // this.JoinChat('blah');
     };
     

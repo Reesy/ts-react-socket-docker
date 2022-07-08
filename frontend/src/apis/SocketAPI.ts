@@ -1,16 +1,16 @@
 
 export class SocketAPI 
 {
-    private websocket: WebSocket;
-    private listeners: Array<Function>;
-    private ws_path: string = process.env.REACT_APP_WS_URL ? process.env.REACT_APP_WS_URL : `ws://${window.location.host}/ws`; 
+    private websocket: WebSocket = null!;
+    private listeners: Array<Function> = [];
+    private ws_path: string = process.env.REACT_APP_WS_URL ? process.env.REACT_APP_WS_URL : `ws://${window.location.host}/ws`;
 
-    constructor()
+    public init()
     {
-        console.log ('ws_path: ', this.ws_path);
+        console.log('ws_path: ', this.ws_path);
         this.websocket = new WebSocket(this.ws_path);
         this.listeners = new Array<Function>();
-        
+
         this.websocket.onmessage = (event) =>
         {
             if (this.listeners.length < 1)
@@ -23,6 +23,7 @@ export class SocketAPI
                 listener(event.data);
             });
         };
+
     };
 
     //I want to check if a connection is established, once connected I want the promise to resolve. 
@@ -42,12 +43,10 @@ export class SocketAPI
         }
     };
 
-
-
     async send(message: string): Promise<void>
     {
         await this.waitForOpen();
-        
+
         this.websocket.send(message);
     };
 
@@ -67,5 +66,4 @@ export class SocketAPI
         this.websocket.close();
     };
 
-
-}
+};

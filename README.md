@@ -75,7 +75,7 @@ It has Jenkins support, If you have a Jenkins server you can use the Jenkins git
 
 - [x] Write a socket class for the server 
 - [ ] Write a socketchat component for react frontend
-- [ ] When a connectin is closed, clean up the list of online users
+- [ ] When a connection is closed, clean up the list of online users
 - [x] Fix all styles to max 500px
 - [x] Figure out horizontal max sizes
 - [ ] Create a max text size icon 
