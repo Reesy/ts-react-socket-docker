@@ -113,7 +113,7 @@ export default class SocketService
         };
 
         this.chatters.set(ws.connectionID, connection);
-        this.sentUpdatedMemberList(ws);
+        this.sendUpdatedMemberList();
         return;
     };
 
@@ -167,6 +167,10 @@ export default class SocketService
         //We can also remove this from the responseTimers map.
         this.responseTimers.delete(ws.connectionID);
 
+        this.chatters.delete(ws.connectionID);
+
+        this.sendUpdatedMemberList();
+
     };
 
     private chat(_messageBody: MessageBody, ws: extendedWS)
@@ -186,7 +190,7 @@ export default class SocketService
         });
     };
 
-    private sentUpdatedMemberList(ws: extendedWS)
+    private sendUpdatedMemberList()
     {
         let memberList: Chatter[] = [];
         this.chatters.forEach((chatter: Chatter) =>

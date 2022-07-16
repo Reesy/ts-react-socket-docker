@@ -56,8 +56,7 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
         };
 
         this.SocketAPI = new SocketAPI();
-        // this.SocketAPI.addListener(this.ChatSocketHandler);
-        // this.JoinChat('blah');
+
     };
     
     render(): React.ReactNode
@@ -93,7 +92,6 @@ export default class ChatComponent extends React.Component<ChatComponentProps, C
 
         return (
             <div className="chatcomponent">
-                {/* <h1 className="chatcomponent__header" >Chat</h1> */}
                 <div className="chat">
                     <h2 className="chat__header">Online:</h2>   
                     {this.state.Chatters.map((chatter, index) => 
