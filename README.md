@@ -74,13 +74,13 @@ It has Jenkins support, If you have a Jenkins server you can use the Jenkins git
 ## Current progress
 
 - [x] Write a socket class for the server 
-- [ ] Write a socketchat component for react frontend
-- [ ] When a connection is closed, clean up the list of online users
+- [x] Write a socketchat component for react frontend
+- [x] When a connection is closed, clean up the list of online users
 - [x] Fix all styles to max 500px
 - [x] Figure out horizontal max sizes
 - [ ] Create a max text size icon 
 - [x] Fix formatting of names to the left 
 - [x] Fix styling of input box
 - [ ] Wire up server class to mongodb 
-- [ ] Add correct nginx configuration
-- [ ] Add correct docker configuration for instantaneous deployements
+- [x] Add correct nginx configuration
+- [x] Add correct docker configuration for instantaneous deployements

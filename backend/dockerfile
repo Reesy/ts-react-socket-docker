@@ -1,6 +1,6 @@
 FROM node:stretch-slim
 
-EXPOSE 8000
+EXPOSE 7070
 
 COPY . ./
 
